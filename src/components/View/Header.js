@@ -34,9 +34,9 @@ export default function Header() {
 
           {/* <Magenta/> */}
 
-          <button className="button-30" onClick={()=>onShuffle()} style={{
+          {/* <button className="button-30" onClick={()=>onShuffle()} style={{
             marginLeft: '50px',
-          }}>SAMPLE</button>
+          }}>SAMPLE</button> */}
 
           
           {/* <div className='play-pause-button'>

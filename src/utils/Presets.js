@@ -38,10 +38,10 @@ pattern(
 
 
 //generate example
-pattern.gen()
+//pattern.gen()
 
 //particially generate example
-pattern.bd.gen()
+//pattern.bd.gen()
 
 
 
