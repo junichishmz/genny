@@ -1,0 +1,8 @@
+# Setting Up Model Configration
+
+model:
+    name : "magenta_rnn"
+    mehtod: "rnn"
+    checkpoint: "checkpoint url"
+    parameter:
+        - temparture: 0.0 #need to think how to set range definition

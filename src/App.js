@@ -1,24 +1,68 @@
-import logo from './logo.svg';
 import './App.css';
+
+import ApiContextProvider from './contexts/ApiContext';
+
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Unstable_Grid2';
+import CodeMirrorView from './components/View/CodeMirrorView';
+import Header from './components/View/Header';
+import ConsoleView from './components/View/ConsoleView';
+// import GlslView from './components/View/GlslView';
+
+const StyledGrid = styled(Grid)(() => ({
+  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  // ...theme.typography.body2,
+  // padding: theme.spacing(1),
+  textAlign: 'left',
+  fontSize: 'calc(8px + 1vmin)',
+  
+
+  // color: theme.palette.text.secondary,
+}));
+
+
+// const GLSLGrid = styled(Grid)(() => ({
+//   backgroundColor:'#000',
+//   height: '100vh',
+//   overflow: 'hidden',
+// }));
+
+const OutputLogGrid = styled(Grid)(() => ({
+    position: 'relative',
+    top: '80vh',
+    fontSize: 'calc(8px + 1vmin)',
+}));
+
 
 function App() {
   return (
+    <ApiContextProvider>
+
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Header/>
+
+      <StyledGrid container spacing={1}>
+        <StyledGrid xs={12}>
+        
+        <CodeMirrorView />
+
+        </StyledGrid>
+      {/*  <GLSLGrid xs={6}>
+          <GlslView/>
+        </GLSLGrid>
+      */}
+
+        <OutputLogGrid>
+        <ConsoleView/>
+        </OutputLogGrid>
+      </StyledGrid>
+
+  
+    
     </div>
+    </ApiContextProvider>
+
   );
 }
 

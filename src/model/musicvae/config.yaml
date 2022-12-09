@@ -1,0 +1,14 @@
+# Setting Up Model Configration
+## Checkpoint Info :  #https://github.com/magenta/magenta-js/blob/master/music/checkpoints/README.md#table
+
+
+#TODO : add explanation of each parameter
+model:
+    name : "magenta_music_vae"
+    mehtod: "vae"
+    parameter:
+        -  checkpoint: "https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/drums_2bar_hikl_small"
+        - temparture: 0.0 #need to think how to set range definition        
+        - similarirty: 0.0 #0.0 - 1.0
+        - zdim : 40
+    
