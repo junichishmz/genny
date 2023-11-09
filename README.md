@@ -1,31 +1,49 @@
-# Create React App
+# Genny
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+This repostiroy for the paper [Genny: Designing and Exploring a Live Coding Interface for Generative Models](https://zenodo.org/records/7843500#.ZEAACuzP0-Q) authored by Junichi Shimizu and Rebecca Fiebrink. This paper was presented at the 7th International Conference on Live Coding (ICLC2023) in Utrecht.
 
-## Deploy Your Own
+## Video 
+[Link to Video](https://vimeo.com/781969647/824b802a67)
 
-Deploy your own Create React App project with Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+## Dependencies
 
-_Live Example: https://create-react-template.vercel.app/_
+### Code Editor / Visual
 
-## Available Scripts
+-   [react-codemirror](https://github.com/uiwjs/react-codemirror)
+-   [glsl-canvas](https://github.com/actarian/glsl-canvas) : might not use
+-   babel-plugin-glsl
+-   three.js
+-   react-three/drei
+-   react-three/fiber
+-   Dropfile
+-   [Material UI](https://mui.com/)
+-   Parser : [@lezer/highlight](https://github.com/lezer-parser/highlight)
+-   Config : [js-yaml](https://www.npmjs.com/package/js-yaml)
 
-In the project directory, you can run:
+### Sound MIDI Control
 
-### `npm start`
+-   tone.js
+-   tone.js/midi
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Sound/ML API
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+-   tensorflow.js
+-   magenta.js
 
-### `npm test`
+## Reference Interface / Others
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   [hydra](https://github.com/ojack/hydra)
+-   [glicol](https://glicol.org/)
+-   [generative-music/theory](https://github.com/generative-music/theory)
 
-### `npm run build`
+## Genny 2.0
+Current genny's code is really complex. I am thinking to update the code to make it more readable and maintainable.
 
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+-   support repricate API? and audio generation?
+-   convert to typescript
+-   bug fix some web audio api
+-   update latest react-code mirror
+-   multiple model running simultaneously
+-   redefine rhythm pattern representation and allow to upload own sound file
+-   show model loading state
