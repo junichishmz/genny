@@ -1,18 +1,28 @@
-import React,{useState} from 'react'
+import React, { useContext } from 'react';
+import { ApiContext } from '../../contexts/ApiContext';
 
 const ConsoleView = () => {
-    const [log,setLog] = useState('output log ')
+    const { log } = useContext(ApiContext);
 
+    return (
+        <div>
+            <p
+                style={{
+                    paddingLeft: '10px',
+                }}
+            >
+                console : generated data
+            </p>
 
+            <p
+                style={{
+                    paddingLeft: '10px',
+                }}
+            >
+                {log}
+            </p>
+        </div>
+    );
+};
 
-
-  return (
-    <div>
-    <p>console :</p>
-    <p>{log}</p>
-    
-    </div>
-  )
-}
-
-export default ConsoleView
+export default ConsoleView;

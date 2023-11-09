@@ -1,8 +1,10 @@
 # Setting Up Model Configration
 
 model:
-    name : "magenta_rnn"
-    mehtod: "rnn"
-    checkpoint: "checkpoint url"
+    name: 'magenta_rnn'
+    checkpoint: 'https://storage.googleapis.com/magentadata/js/checkpoints/music_rnn/drum_kit_rnn'
     parameter:
-        - temparture: 0.0 #need to think how to set range definition
+        - temperature: 2.0 #need to think how to set range definition
+        - steps: 32.0 #how mane steps
+    function:
+        - input: 'continueSequence the sequence'

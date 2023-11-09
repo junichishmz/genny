@@ -7,25 +7,17 @@ import Grid from '@mui/material/Unstable_Grid2';
 import CodeMirrorView from './components/View/CodeMirrorView';
 import Header from './components/View/Header';
 import ConsoleView from './components/View/ConsoleView';
-// import GlslView from './components/View/GlslView';
+import GlslView from './components/View/GlslView';
 
 const StyledGrid = styled(Grid)(() => ({
-  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  // ...theme.typography.body2,
-  // padding: theme.spacing(1),
-  textAlign: 'left',
-  fontSize: 'calc(8px + 1vmin)',
-  
-
-  // color: theme.palette.text.secondary,
+    // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    // ...theme.typography.body2,
+    // padding: theme.spacing(1),
+    textAlign: 'left',
+    fontSize: 'calc(8px + 1vmin)',
+    zIndex: '1',
+    // color: theme.palette.text.secondary,
 }));
-
-
-// const GLSLGrid = styled(Grid)(() => ({
-//   backgroundColor:'#000',
-//   height: '100vh',
-//   overflow: 'hidden',
-// }));
 
 const OutputLogGrid = styled(Grid)(() => ({
     position: 'relative',
@@ -33,37 +25,28 @@ const OutputLogGrid = styled(Grid)(() => ({
     fontSize: 'calc(8px + 1vmin)',
 }));
 
-
 function App() {
-  return (
-    <ApiContextProvider>
+    return (
+        <ApiContextProvider>
+            <div className="App">
+                <Header />
 
+                <StyledGrid container spacing={0}>
+                    <StyledGrid xs={12}>
+                        <CodeMirrorView />
+                    </StyledGrid>
 
-    <div className="App">
-    <Header/>
+                    <div className="glsl">
+                        <GlslView />
+                    </div>
 
-      <StyledGrid container spacing={1}>
-        <StyledGrid xs={12}>
-        
-        <CodeMirrorView />
-
-        </StyledGrid>
-      {/*  <GLSLGrid xs={6}>
-          <GlslView/>
-        </GLSLGrid>
-      */}
-
-        <OutputLogGrid>
-        <ConsoleView/>
-        </OutputLogGrid>
-      </StyledGrid>
-
-  
-    
-    </div>
-    </ApiContextProvider>
-
-  );
+                    <OutputLogGrid>
+                        <ConsoleView />
+                    </OutputLogGrid>
+                </StyledGrid>
+            </div>
+        </ApiContextProvider>
+    );
 }
 
 export default App;

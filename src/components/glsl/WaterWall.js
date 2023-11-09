@@ -1,57 +1,64 @@
-import glsl from 'babel-plugin-glsl/macro'
-import {shaderMaterial} from '@react-three/drei'
-import { extend ,useFrame} from '@react-three/fiber'
-import React, {useRef } from 'react'
-import * as THREE from 'three'
+import glsl from 'babel-plugin-glsl/macro';
+import { shaderMaterial } from '@react-three/drei';
+import { extend, useFrame } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import * as THREE from 'three';
 
+export const WaterWallMesh = props => {
+    const ref = useRef();
 
-export const WaterWallMesh = (props) => {
-
-    const ref = useRef()
-
-    const depthColor = new THREE.Color('#244279')
-    const surfaceColor = new THREE.Color('#2b7ea3')
+    const depthColor = new THREE.Color('#244279');
+    const surfaceColor = new THREE.Color('#2b7ea3');
 
     useFrame((state, delta) => {
-      ref.current.uniforms.uBigWaveElevation.value = props.wave
-      ref.current.uniforms.uSmallWavesElevation.value = props.smallWave
-      ref.current.uniforms.uWaveSpeed.value = props.speed
+        ref.current.uniforms.uBigWaveElevation.value = props.wave;
+        ref.current.uniforms.uSmallWavesElevation.value = props.smallWave;
+        ref.current.uniforms.uWaveSpeed.value = props.speed;
 
-      ref.current.uniforms.uTime.value += delta
-    })
+        ref.current.uniforms.uTime.value += delta;
+    });
 
-    return(
-      <mesh  rotation={[3.14,0.0, 0.0]} position={[-0, 10, 230]} >
-      {/* The geometry has a 128x128 subdivision. We are goingto animate the vertices to get the waves and we need quite a lot of vertices. 128x128 might not be enough, but we will increase the value if required. */}
-      {/* <mesh  rotation={[-4.7, 3.14, 0.0]} position={[-50, 3.5, -50]} scale={20.0} ></mesh> */}
-      {/* <planeBufferGeometry attach="geometry" args={[300,400,512,512]}/> */}
-      <boxGeometry args={[260, 260, 8]} />
-      
-      {/* <waterMaterial ref={ref} wireframe={true}/> */}
-      <waterWallMaterial ref={ref} depthColor={depthColor} surfaceColor={surfaceColor}/>
-      </mesh>
-    )
-    
-}
+    return (
+        <mesh rotation={[0.0, 0.0, 0.0]} position={[0, 0, 0]}>
+            {/* The geometry has a 128x128 subdivision. We are goingto animate the vertices to get the waves and we need quite a lot of vertices. 128x128 might not be enough, but we will increase the value if required. */}
+            {/* <mesh  rotation={[-4.7, 3.14, 0.0]} position={[-50, 3.5, -50]} scale={20.0} ></mesh> */}
+            {/* <planeGeometry attach="geometry" args={[300,400,512,512]}/> */}
+            <boxGeometry args={[40, 60, -80]} />
+
+            {/* <waterMaterial ref={ref} wireframe={true}/> */}
+            <waterWallMaterial
+                ref={ref}
+                depthColor={depthColor}
+                surfaceColor={surfaceColor}
+                transparent
+                opacity={0.01}
+            />
+        </mesh>
+    );
+};
 
 const WaterWallMaterial = shaderMaterial(
     //uniforms
     {
-      uBigWaveElevation:  0.4,
-      uTime : 0,
-      depthColor: '',
-      surfaceColor: '',
-      uSmallWavesElevation: 0.15,
-      uWaveSpeed: 0.35,
-     },
+        uBigWaveElevation: 0.4,
+        uTime: 0,
+        depthColor: '',
+        surfaceColor: '',
+        uSmallWavesElevation: 0.15,
+        uWaveSpeed: 0.35,
+    },
     // vertex shader
     glsl`
       uniform float uBigWaveElevation;
       uniform float uTime;
       uniform float uSmallWavesElevation;
       uniform float uWaveSpeed;
-
+      
       varying float vElevation;
+
+      
+
+      
 
       // Classic Perlin 3D Noise 
       // by Stefan Gustavson
@@ -139,7 +146,9 @@ const WaterWallMaterial = shaderMaterial(
       }
 
       void main() {
- 
+        
+        
+
         vec4 modelPosition = modelMatrix * vec4(position, 1.0);
         
         vec2 uBigWaveFrequency = vec2(4.0,2.5);
@@ -150,7 +159,6 @@ const WaterWallMaterial = shaderMaterial(
         {
           elevation -= abs(cnoise(vec3(modelPosition.xz * uSmallWavesElevation * i, uTime )) * uWaveSpeed / i);
         } 
-        // modelPosition.y += elevation;
         
         vec4 viewPosition = viewMatrix * modelPosition;
         vec4 projectedPosition = projectionMatrix * viewPosition;
@@ -163,7 +171,6 @@ const WaterWallMaterial = shaderMaterial(
     glsl`
       
       varying float vElevation;
-
       uniform vec3 depthColor;
       uniform vec3 surfaceColor;
 
@@ -177,9 +184,8 @@ const WaterWallMaterial = shaderMaterial(
 
         vec3 color = mix(depthColor,surfaceColor,mixStrength);
 
-        gl_FragColor = vec4(color, 1.0);
+        gl_FragColor = vec4(color, 0.3);
       }
     `
-  )
-  extend({ WaterWallMaterial })
-  
+);
+extend({ WaterWallMaterial });

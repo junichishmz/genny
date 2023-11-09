@@ -3,35 +3,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 .App {
-  font-family: 'Inconsolata', monospace;
-  /* font-family: 'Source Code Pro', monospace; */
-  background-color: #282c34;
-  color: white;
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  overflow: hidden;
-  overflow-x: hidden;
-
+    font-family: 'Inconsolata', monospace;
+    /* font-family: 'Source Code Pro', monospace; */
+    background-color: #282c34;
+    color: white;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    overflow: hidden;
+    overflow-x: hidden;
 }
 
-.title{
-  background-color: aqua;
-  font-family: 'Inconsolata', monospace;
-  /* Mimic font style */
-  /* font-family: 'Staatliches', 'Inconsolata', monospace; */
+.title {
+    background-color: aqua;
+    font-family: 'Inconsolata', monospace;
+    /* Mimic font style */
+    /* font-family: 'Staatliches', 'Inconsolata', monospace; */
 
-  padding: 5px;
-  color: rgb(58, 58, 58);
-  font-size: calc(10px + 2vmin);
-  text-align: center;
+    padding: 5px;
+    margin-right: auto;
+    color: rgb(58, 58, 58);
+    font-size: calc(10px + 2vmin);
+    text-align: center;
+    padding-right: 1%;
+    padding-left: 1%;
 }
 
-.play-pause-button{
-  margin-left: auto;
+.play-pause-button {
+    margin-left: auto;
 }
 
+.parent {
+    position: relative;
+    display: flex;
+}
 
+.codemirror {
+    z-index: 1;
+    opacity: 0.8;
+}
 
+.glsl {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 80vh;
+}
 
 /* 
 .App-logo {
@@ -57,18 +73,15 @@
   
 } */
 
-
-
 /* CSS https://getcssscan.com/css-buttons-examples*/
-.button-30 {
+/* .button-30 {
   align-items: center;
   appearance: none;
-  background-color: #FCFCFD;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  background-color: #434e62;
+  border-radius: 2px;
+  border-width: 2;
   box-sizing: border-box;
-  color: #36395A;
+  color: #D6D6E7;
   cursor: pointer;
   display: inline-flex;
   height: 30px;
@@ -96,11 +109,44 @@
 
 .button-30:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-  /* transform: translateY(-2px); */
 }
 
 .button-30:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(1px);
+} */
+
+/* CSS */
+.button-30 {
+    align-items: center;
+    background-color: #434e62;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(231, 231, 231, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue',
+        Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 2rem;
+    padding: calc(0.5rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
 }
 
+.button-30:hover {
+    transform: translateY(0px);
+    border: 1px solid rgba(253, 253, 255, 0.8);
+}
