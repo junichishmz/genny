@@ -341,7 +341,7 @@ const Control = forwardRef((props, ref) => {
 
     //TODO : Fix the problem : Uncaught Error: Start time must be strictly greater than previous start time
     const setPlay = (time, note) => {
-        console.log(note)
+        // console.log(note)
         try {
             drumPlayer.player(note).start(time);
         } catch (error) {}

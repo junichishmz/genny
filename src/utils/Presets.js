@@ -1,5 +1,10 @@
 //PRESET 4
-export const initialCode = `// 1. Ryhthm Pattern
+export const initialCode = `/**
+* MOD(CMD:Mac)+ENTER : START and UPDATE
+* MOD(CMD:Mac)+SHIFT+ENTRT : STOP
+**/
+
+// 1. Ryhthm Pattern
 //pattern function is mainly using for exploring pattern not using model
 // pattern definition is following tone.js style
 // you need to add "play()" to play the sequence
