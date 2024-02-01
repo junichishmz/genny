@@ -177,7 +177,7 @@ const CodeMirrorView = () => {
                 <CodeMirror
                     ref={ref}
                     value={code}
-                    theme={glslTheme} //glslTheme or sublime
+                    theme={sublime} //glslTheme or sublime
                     height="80vh"
                     extensions={[
                         javascript({ jsx: true }),
