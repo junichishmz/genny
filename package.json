@@ -29,14 +29,14 @@
     "three": "^0.146.0",
     "tone": "^14.7.77",
     "web-vitals": "^2.1.4"
-},
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore"
-},
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
