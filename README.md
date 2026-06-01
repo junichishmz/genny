@@ -37,13 +37,3 @@ This repostiroy for the paper [Genny: Designing and Exploring a Live Coding Inte
 -   [glicol](https://glicol.org/)
 -   [generative-music/theory](https://github.com/generative-music/theory)
 
-## Genny 2.0
-Current genny's code is really complex. I am thinking to update the code to make it more readable and maintainable.
-
--   support repricate API? and audio generation?
--   convert to typescript
--   bug fix some web audio api
--   update latest react-code mirror
--   multiple model running simultaneously
--   redefine rhythm pattern representation and allow to upload own sound file
--   show model loading state
