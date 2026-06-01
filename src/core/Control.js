@@ -70,7 +70,6 @@ const Control = forwardRef((props, ref) => {
     }, [dataArray, setSimilarityDis]);
 
     /** Initial Parser form preset  */
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         //drum player Initialize
         drumPatternPlayer.current = new Part((time, note) =>{
@@ -86,6 +85,7 @@ const Control = forwardRef((props, ref) => {
         modelPatternPlayer.current.loop = true;
         modelPatternPlayer.current.loopStart = 0;
         modelPatternPlayer.current.loopEnd = '2m';
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useImperativeHandle(ref, () => {

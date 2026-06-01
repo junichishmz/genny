@@ -1,53 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { Canvas } from '@react-three/fiber';
-// import { OrthographicCamera,OrbitControls } from '@react-three/drei'
-import { Text, Line } from '@react-three/drei';
 
 import { WaterWallMesh } from '../glsl/WaterWall';
-import * as THREE from 'three';
-
-import { ApiContext } from '../../contexts/ApiContext';
 
 const GlslView = () => {
-    const { similarityDis } = useContext(ApiContext);
-    const [lineData, setLineData] = useState([]);
-
-    const [posData1, setPosData1] = useState([2, 3]);
-    const [posData2, setPosData2] = useState([-7, 0]);
-
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    useEffect(() => {
-        var simDis = similarityDis;
-        if (simDis > 12) simDis = 12;
-        if (simDis < -12) simDis = -12;
-
-        simDis = 12 - Math.abs(simDis);
-        if (simDis < 1) simDis = 1; //min dis
-
-        var p1X = getRandomInt(simDis, 0);
-        var p2X = getRandomInt(-simDis, 0);
-
-        var dx = p1X - p2X;
-        var squrX = Math.sqrt(dx * dx);
-
-        var yDis = Math.abs(simDis - squrX);
-
-        var p1Y = (0 - yDis) / 2;
-        var p2Y = (0 + yDis) / 2;
-        setPosData1([p1X, p1Y]);
-        setPosData2([p2X, p2Y]);
-        let array = [
-            [0, 0],
-            [0, 0],
-        ];
-
-        setLineData(array);
-    }, [similarityDis]);
 
     return (
         <Canvas

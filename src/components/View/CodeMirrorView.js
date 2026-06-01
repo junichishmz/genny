@@ -16,44 +16,10 @@ import { ApiContext } from '../../contexts/ApiContext';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import { createTheme } from '@uiw/codemirror-themes';
-
-import { tags as t } from '@lezer/highlight';
-// import { Extension } from "@codemirror/state";
 import { EditorView } from '@codemirror/view';
 // import { defaultKeymap } from '@codemirror/commands';
 import { keymap } from '@codemirror/view';
 import Control from '../../core/Control';
-
-const glslTheme = createTheme({
-    theme: 'dark',
-    settings: {
-        background: 'rgba(0,0,0,0.0)',
-        foreground: '#75baff',
-        caret: '#5d00ff',
-        selection: '#036dd626',
-        selectionMatch: '#036dd626',
-        lineHighlight: '#8a91991a',
-        gutterBackground: '#282c34',
-        gutterForeground: '#rgba(0,0,0,0.3)',
-    },
-    styles: [
-        { tag: t.comment, color: '#94a6a6' },
-        { tag: t.variableName, color: '#0080ff' },
-        { tag: [t.string, t.special(t.brace)], color: '#fff' },
-        { tag: t.number, color: '#fff' },
-        { tag: t.bool, color: '#fff' },
-        { tag: t.null, color: '#fff' },
-        { tag: t.keyword, color: '#fff' },
-        { tag: t.operator, color: '#fff' },
-        { tag: t.className, color: '#5c6166' },
-        { tag: t.definition(t.typeName), color: '#5c6166' },
-        { tag: t.typeName, color: '#5c6166' },
-        { tag: t.angleBracket, color: '#5c6166' },
-        { tag: t.tagName, color: '#5c6166' },
-        { tag: t.attributeName, color: '#5c6166' },
-    ],
-});
 
 const StyledGrid = styled(Grid)(() => ({
     position: 'absolute',
@@ -83,7 +49,7 @@ const CodeMirrorView = () => {
 
     const onChange = React.useCallback((value, viewUpdate) => {
         setCode(value);
-    }, []);
+    }, [setCode]);
 
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
