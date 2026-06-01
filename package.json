@@ -1,5 +1,8 @@
 {
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.5",
     "@emotion/react": "^11.14.0",

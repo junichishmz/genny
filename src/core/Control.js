@@ -7,7 +7,7 @@ import React, {
     useContext,
     useRef,
 } from 'react';
-import { Players, Part, Transport, start, Time } from 'tone';
+import { Players, Part, Transport, start as toneStart, Time } from 'tone';
 
 import { defaultPitch } from '../utils/DefaultPitchPreset';
 //context
@@ -52,9 +52,6 @@ const Control = forwardRef((props, ref) => {
     const modelPlayer = new Players(defaultPitch).toDestination();
     modelPlayer.volume.value = -5; //TODO : need to make async function though
 
-    //Sequence data
-    const timeManger = useRef(null);
-
     const drumPatternPlayer = useRef(null);
     const modelPatternPlayer = useRef(null);
 
@@ -70,9 +67,10 @@ const Control = forwardRef((props, ref) => {
             const data = dataArray.filter((dataArray, index) => index !== 0);
             setDataArray(data);
         }
-    }, [dataArray]);
+    }, [dataArray, setSimilarityDis]);
 
     /** Initial Parser form preset  */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         //drum player Initialize
         drumPatternPlayer.current = new Part((time, note) =>{
@@ -119,7 +117,7 @@ const Control = forwardRef((props, ref) => {
      * -------------------------------------------------
      */
     const onStart = async () => {
-        await start();
+        await toneStart();
         Transport.cancel();
         Transport.start();
         Transport.bpm.value = 120;

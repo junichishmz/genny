@@ -176,7 +176,7 @@ function toneRyhthmPattern(matches) {
     for (const key in array) {
         const value = array[key];
         const result = value.map(item =>
-            item.replace(/^[\[\"\s]+|[\"\]\s]+$/g, '')
+            item.replace(/^[[\s"]+|["\]\s]+$/g, '')
         );
         result[1] = parseInt(result[1]);
         res_array.push(result);
@@ -188,7 +188,7 @@ function toneRyhthmPattern(matches) {
 //ToDo: think about data arrangement format
 export function noteToToneRhythm(data) {
     var res_array = [];
-    for (const [idx, input] of data.entries()) {
+    for (const input of data) {
         var index = ToneTransportConverter.findIndex(
             v => v.time === input.time
         );
@@ -246,7 +246,6 @@ export function updateCodeEditor(model, code, updatedData) {
                     }
                 }
             }
-            var tmpIdx = modelIdx + outputStr.length;
             lines.splice(modelIdx, outputStr.length);
 
             //add output data
