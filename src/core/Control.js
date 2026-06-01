@@ -7,7 +7,7 @@ import React, {
     useContext,
     useRef,
 } from 'react';
-import * as Tone from 'tone';
+import { Players, Part, Transport, start, Time } from 'tone';
 
 import { defaultPitch } from '../utils/DefaultPitchPreset';
 //context
@@ -46,10 +46,10 @@ const Control = forwardRef((props, ref) => {
 
 
 
-    const drumPlayer = new Tone.Players(defaultPitch).toDestination();
+    const drumPlayer = new Players(defaultPitch).toDestination();
     drumPlayer.volume.value = -5; //TODO : need to make async function though
 
-    const modelPlayer = new Tone.Players(defaultPitch).toDestination();
+    const modelPlayer = new Players(defaultPitch).toDestination();
     modelPlayer.volume.value = -5; //TODO : need to make async function though
 
     //Sequence data
@@ -75,14 +75,14 @@ const Control = forwardRef((props, ref) => {
     /** Initial Parser form preset  */
     useEffect(() => {
         //drum player Initialize
-        drumPatternPlayer.current = new Tone.Part((time, note) =>{
+        drumPatternPlayer.current = new Part((time, note) =>{
             setPlay(time, note)
         });
         drumPatternPlayer.current.loop = true;
         drumPatternPlayer.current.loopStart = 0;
         drumPatternPlayer.current.loopEnd = '2m';
 
-        modelPatternPlayer.current = new Tone.Part((time, note) =>
+        modelPatternPlayer.current = new Part((time, note) =>
             setPlayModel(time, note)
         );
         modelPatternPlayer.current.loop = true;
@@ -119,10 +119,10 @@ const Control = forwardRef((props, ref) => {
      * -------------------------------------------------
      */
     const onStart = async () => {
-        await Tone.start();
-        Tone.Transport.cancel();
-        Tone.Transport.start();
-        Tone.Transport.bpm.value = 120;
+        await start();
+        Transport.cancel();
+        Transport.start();
+        Transport.bpm.value = 120;
         start();
         // timeStart()
     };
@@ -238,7 +238,7 @@ const Control = forwardRef((props, ref) => {
 
     /** Convert Rhythm Pattern to NoteSequence for magenta manner*/
     function convertRhythmToNoteSequence(patterns) {
-        var sixteenthNoteTicks = Tone.Time('16n').toTicks();
+        var sixteenthNoteTicks = Time('16n').toTicks();
         for (var p of patterns) {
             var noteSequence = {};
             var note_array = [];
@@ -246,9 +246,9 @@ const Control = forwardRef((props, ref) => {
                 var n_dic = {};
                 n_dic.pitch = d[1];
                 n_dic.quantizedStartStep =
-                    Tone.Time(d[0]).toTicks() / sixteenthNoteTicks;
+                    Time(d[0]).toTicks() / sixteenthNoteTicks;
                 n_dic.quantizedEndStep =
-                    Tone.Time(d[0]).toTicks() / sixteenthNoteTicks + 1;
+                    Time(d[0]).toTicks() / sixteenthNoteTicks + 1;
                 n_dic.isDrum = true;
                 note_array.push(n_dic);
             }
@@ -303,7 +303,7 @@ const Control = forwardRef((props, ref) => {
             var note_log = [];
 
             // Get model generation result and update the rhythm
-            var secondsPerBeat = 60 / Tone.Transport.bpm.value;
+            var secondsPerBeat = 60 / Transport.bpm.value;
             var subdivision = 4;
             var secondsPerSubdivision = secondsPerBeat / subdivision;
 
@@ -361,7 +361,7 @@ const Control = forwardRef((props, ref) => {
     //ToDO chaneged the never stopping for time manager
     const onMute = () => {
         // drumPatternPlayer.current.clear()
-        Tone.Transport.cancel();
+        Transport.cancel();
     };
 
 

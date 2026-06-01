@@ -1,5 +1,5 @@
 import { Midi } from '@tonejs/midi';
-import * as Tone from 'tone';
+import { Time } from 'tone';
 
 export async function midiParser(midiFile) {
     var data = [];
@@ -28,13 +28,13 @@ export async function midiParser(midiFile) {
  * retrun : sequence data for MusicVae
  */
 export function seedSequence(pattern) {
-    let sixteenthNoteTicks = Tone.Time('16n').toTicks();
+    let sixteenthNoteTicks = Time('16n').toTicks();
     let data = {
         notes: pattern.map(([time, drum]) => ({
             pitch: pattern.get(drum),
-            quantizedStartStep: Tone.Time(time).toTicks() / sixteenthNoteTicks,
+            quantizedStartStep: Time(time).toTicks() / sixteenthNoteTicks,
             quantizedEndStep:
-                Tone.Time(time).toTicks() / sixteenthNoteTicks + 1,
+                Time(time).toTicks() / sixteenthNoteTicks + 1,
         })),
         totalQuantizedSteps: 32,
         quantizationInfo: { stepsPerQuarter: 4 },
