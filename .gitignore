@@ -27,3 +27,7 @@ yarn-error.log*
 .env
 .env.build
 .vercel
+
+
+# Samples
+public/samples/**/*.wav

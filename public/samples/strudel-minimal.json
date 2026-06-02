@@ -1,0 +1,119 @@
+{
+  "_base": "/samples/",
+  "bd": [
+    "bd/BT0A0A7.wav",
+    "bd/BT0A0D0.wav",
+    "bd/BT0A0D3.wav",
+    "bd/BT0A0DA.wav",
+    "bd/BT0AAD0.wav"
+  ],
+  "sn": [
+    "808sd/SD0000.WAV",
+    "808sd/SD0010.WAV",
+    "808sd/SD0025.WAV",
+    "808sd/SD0050.WAV",
+    "808sd/SD0075.WAV"
+  ],
+  "hh": [
+    "808hc/HC00.WAV",
+    "808hc/HC10.WAV",
+    "808hc/HC25.WAV",
+    "808hc/HC50.WAV",
+    "808hc/HC75.WAV"
+  ],
+  "oh": [
+    "808oh/OH00.WAV",
+    "808oh/OH10.WAV",
+    "808oh/OH25.WAV",
+    "808oh/OH50.WAV",
+    "808oh/OH75.WAV"
+  ],
+  "cp": [
+    "cp/HANDCLP0.wav",
+    "cp/HANDCLPA.wav"
+  ],
+  "cr": [
+    "cr/RIDED0.wav",
+    "cr/RIDED2.wav",
+    "cr/RIDED4.wav"
+  ],
+  "bass": [
+    "bass/000_bass1.wav",
+    "bass/001_bass2.wav",
+    "bass/002_bass3.wav",
+    "bass/003_bass4.wav"
+  ],
+  "arp": [
+    "arp/000_arp2.wav",
+    "arp/001_arp.wav"
+  ],
+  "arpy": [
+    "arpy/arpy01.wav",
+    "arpy/arpy02.wav",
+    "arpy/arpy03.wav",
+    "arpy/arpy04.wav",
+    "arpy/arpy05.wav"
+  ],
+  "bleep": [
+    "bleep/boip.wav",
+    "bleep/checkpoint-hit.wav",
+    "bleep/echo-blip-thing.wav"
+  ],
+  "click": [
+    "click/000_click0.wav",
+    "click/001_click1.wav",
+    "click/002_click2.wav",
+    "click/003_click3.wav"
+  ],
+  "glitch": [
+    "glitch/000_BD.wav",
+    "glitch/001_CB.wav",
+    "glitch/002_FX.wav",
+    "glitch/003_HH.wav",
+    "glitch/004_OH.wav",
+    "glitch/005_P1.wav",
+    "glitch/006_P2.wav",
+    "glitch/007_SN.wav"
+  ],
+  "house": [
+    "house/000_BD.wav",
+    "house/001_CB.wav",
+    "house/002_FX.wav",
+    "house/003_HH.wav",
+    "house/004_OH.wav",
+    "house/005_P1.wav",
+    "house/006_P2.wav",
+    "house/007_SN.wav"
+  ],
+  "jazz": [
+    "jazz/000_BD.wav",
+    "jazz/001_CB.wav",
+    "jazz/002_FX.wav",
+    "jazz/003_HH.wav",
+    "jazz/004_OH.wav",
+    "jazz/005_P1.wav",
+    "jazz/006_P2.wav",
+    "jazz/007_SN.wav"
+  ],
+  "808": [
+    "808/CB.WAV",
+    "808/CH.WAV",
+    "808/CL.WAV",
+    "808/CP.WAV",
+    "808/MA.WAV",
+    "808/RS.WAV"
+  ],
+  "909": [
+    "909/BT0A0A7.WAV"
+  ],
+  "clak": [
+    "clak/000_clak1.wav",
+    "clak/001_clak2.wav"
+  ],
+  "crow": [
+    "crow/000_crow.wav",
+    "crow/001_crow2.wav",
+    "crow/002_crow3.wav",
+    "crow/003_crow4.wav"
+  ]
+}
