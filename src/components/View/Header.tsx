@@ -66,7 +66,7 @@ const Header: React.FC = () => {
             </select>
           </label>
           <button className="button-30" onClick={() => setIsSettingsOpen(true)}>
-            Settings
+            Links
           </button>
         </div>
       </div>
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
             onClick={event => event.stopPropagation()}
           >
             <div className="settings-header">
-              <h2 id="settings-title">Settings</h2>
+              <h2 id="settings-title">Links</h2>
               <button className="modal-close" onClick={() => setIsSettingsOpen(false)} aria-label="Close settings">
                 X
               </button>
