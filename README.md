@@ -55,9 +55,7 @@ This project depends on Strudel packages:
 ## Reference Interface / Others
 
 - [Strudel Getting Started workshop](https://strudel.cc/workshop/getting-started/) - source reference for the `Strudel Runtime Example` template pattern.
-- [hydra](https://github.com/ojack/hydra)
-- [glicol](https://glicol.org/)
-- [generative-music/theory](https://github.com/generative-music/theory)
+
 
 ## License Notes
 
